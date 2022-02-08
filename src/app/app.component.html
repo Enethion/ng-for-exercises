@@ -1,9 +1,9 @@
 <h1>Ćwiczenia z *ngFor</h1>
 
-<h2>1. Wypisz tablicę 'frameworsk' za pomocą *ngFor i dodaj index:</h2>
+<h2>1. Wypisz tablicę 'frameworks' za pomocą *ngFor i dodaj index:</h2>
 <ul>
-  <li>
-    uzupełnij
+  <li *ngFor="let framework of frameworks; let i = index">
+    {{i}}. {{ framework }}
   </li>
 </ul>
 
@@ -11,7 +11,9 @@
 
 <h2>2. Wypisz model i markę samochodu z tablicy 'cars' za pomocą *ngFor:</h2>
 <ul>
-  <li>uzupełnij</li>
+  <li *ngFor="let car of cars">
+  {{ car.mark }} {{ car.model }}
+  </li>
 </ul>
 
 <br />
@@ -21,31 +23,30 @@
   keyvalue:
 </h2>
 <ul>
-  <li>
-    uzupełnij
+  <li *ngFor="let car of carsObj | keyvalue">
+    {{ car.key }} {{ car.value }}
   </li>
 </ul>
 
 <br />
 
 <h2>
-  4. Wypisz z tablicy 'frameworsk' tylko pierwszy i ostatni element. Dodatkowo
+  4. Wypisz z tablicy 'frameworks' tylko pierwszy i ostatni element. Dodatkowo
   należy użyć *ngIf:
 </h2>
 <ul>
-  <ng-container>
-    <li>uzupełnij</li>
-    <li>uzupełnij</li>
+  <ng-container *ngFor="let framework of frameworks; let first = first; let last = last">
+    <li *ngIf="first || last">{{ framework }}</li>
   </ng-container>
 </ul>
 
 <h2>
-  5. Wypisz z tablicy 'frameworsk' elementy, które mają parzysty indeks.
+  5. Wypisz z tablicy 'frameworks' elementy, które mają parzysty indeks.
   Dodatkowo należy użyć *ngIf (jeżeli już wiesz jak używać):
 </h2>
 <ul>
-  <ng-container>
-    <li>uzupełnij</li>
+  <ng-container *ngFor="let framework of frameworks; let even = even">
+    <li *ngIf="even">{{ framework }}</li>
   </ng-container>
 </ul>
 
@@ -54,7 +55,7 @@
   company name:
 </h2>
 <ul>
-  <li>
-    uzupełnij
+  <li *ngFor="let user of persons">
+    {{ user?.id }}. {{ user?.name }} {{ user?.address?.city }} {{ user?.company?.name }} 
   </li>
 </ul>
